@@ -2,6 +2,7 @@
     "name": "dprmc/sentry-helper",
     "description": "A tiny library to contain some helper functions needed to interact with Clear Structure's Sentry System.",
     "type": "library",
+    "license": "MIT",
     "require-dev": {
         "phpunit/phpunit": "^8.4"
     },
