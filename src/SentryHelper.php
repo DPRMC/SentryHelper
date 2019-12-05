@@ -475,7 +475,7 @@ class SentryHelper {
      */
     public static function transactionTypeText( int $transactionCodeId ): string {
         if ( !isset( self::$transactionCodeDescriptions[ $transactionCodeId ] ) ):
-            throw new \Exception( "We don't have this transactionTypeText set yet in the SentryHelper file." );
+            throw new \Exception( "We don't have this transactionCodeDescriptions set for transactionCodeId [" . $transactionCodeId . "] in the SentryHelper file." );
         endif;
         return self::$transactionCodeDescriptions[ $transactionCodeId ];
     }
