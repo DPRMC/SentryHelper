@@ -383,6 +383,23 @@ class SentryHelper {
     const REPO_DEPOSIT_FUNDS                  = 440;
     const PREMIUM_INCOME                      = 4;
     const MATURED_SHORT                       = 592;
+    const SELL_PROTECTION                     = 25;
+    const SELL_PROTECTION_FOR_FUNDED_CDS      = 79;
+    const SELL_FORWARD                        = 116;
+    const BUY_PROTECTION_FOR_FUNDED_CDS       = 80;
+    const BUY_FORWARD                         = 115;
+    const PARTIAL_TERMINATE_PROTECTION_SOLD   = 308;
+    const TERMINATE_PROTECTION_SOLD           = 51;
+    const CLOSE_TRS                           = 473;
+    const OPEN_TRS                            = 472;
+    const CLOSE_TRS_LONG_FROM_UPSIZE          = 539;
+    const CLOSE_TRS_SHORT_FROM_UPSIZE         = 540;
+    const OPEN_TRS_LONG_FROM_UPSIZE           = 537;
+    const OPEN_TRS_SHORT_FROM_UPSIZE          = 538;
+    const CLOSE_FUTURES_CONTRACT_SHORT        = 271;
+    const OPEN_FUTURES_CONTRACT_SHORT         = 269;
+
+
 
 
     public static $transactionCodeDescriptions = [
@@ -440,6 +457,22 @@ class SentryHelper {
         self::REPO_DEPOSIT_FUNDS                  => 'Repo Deposit Funds',
         self::PREMIUM_INCOME                      => 'Premium Income',
         self::MATURED_SHORT                       => 'Matured Short',
+        self::SELL_PROTECTION                     => 'Sell Protection',
+        self::SELL_PROTECTION_FOR_FUNDED_CDS      => 'Sell Protection for Funded CDS',
+        self::SELL_FORWARD                        => 'Sell Forward',
+        self::BUY_PROTECTION_FOR_FUNDED_CDS       => 'Buy Protection for Funded CDS',
+        self::BUY_FORWARD                         => 'Buy Forward',
+        self::PARTIAL_TERMINATE_PROTECTION_SOLD   => 'Partial Terminate Protection Sold',
+        self::TERMINATE_PROTECTION_SOLD           => 'Terminate Protection Sold',
+        self::CLOSE_TRS                           => 'Close TRS',
+        self::OPEN_TRS                            => 'Open TRS',
+        self::CLOSE_TRS_LONG_FROM_UPSIZE          => 'Close TRS Long from Upsize',
+        self::CLOSE_TRS_SHORT_FROM_UPSIZE         => 'Close TRS Short from Upsize',
+        self::OPEN_TRS_LONG_FROM_UPSIZE           => 'Open TRS Long from Upsize',
+        self::OPEN_TRS_SHORT_FROM_UPSIZE          => 'Open TRS Short from Upsize',
+        self::CLOSE_FUTURES_CONTRACT_SHORT        => 'Close futures contract short',
+        self::OPEN_FUTURES_CONTRACT_SHORT         => 'Open futures contract short'
+
     ];
 
     public static $transactionCodeTradeActions = [
@@ -447,27 +480,48 @@ class SentryHelper {
         self::SELL                                => 'sell',
         self::SELL_SHORT                          => 'sell',
         self::BUY_TO_COVER                        => 'buy',
-        self::BUY_TO_OPEN                         => 'buy',
         self::BUY_TO_CLOSE                        => 'buy',
+        self::BUY_TO_OPEN                         => 'buy',
+        self::SELL_TO_CLOSE                       => 'sell',
+        self::SELL_TO_OPEN                        => 'sell',
+        self::BUY_PROTECTION                      => 'buy',
+        self::SELL_PROTECTION                     => 'sell',
+        self::SELL_PROTECTION_FOR_FUNDED_CDS      => 'sell',
+        self::SELL_FORWARD                        => 'sell',
+        self::BUY_PROTECTION_FOR_FUNDED_CDS       => 'buy',
+        self::BUY_FORWARD                         => 'buy',
+        self::PARTIAL_TERMINATE_PROTECTION_BOUGHT => 'misc',
+        self::PARTIAL_TERMINATE_PROTECTION_SOLD   => 'misc',
+        self::TERMINATE_PROTECTION_BOUGHT         => 'misc',
+        self::TERMINATE_PROTECTION_SOLD           => 'misc',
+        self::CLOSE_IRS                           => 'sell',
+        self::OPEN_IRS                            => 'buy',
+        self::PARTIAL_CLOSE_IRS                   => 'sell',
+        self::CLOSE_TRS                           => 'sell',
+        self::CLOSE_SHORT_TRS                     => 'sell',
+        self::OPEN_TRS                            => 'buy',
+        self::OPEN_SHORT_TRS                      => 'buy',
+        self::CLOSE_TRS_LONG_FROM_UPSIZE          => 'buy',
+        self::CLOSE_TRS_SHORT_FROM_UPSIZE         => 'sell',
+        self::OPEN_TRS_LONG_FROM_UPSIZE           => 'buy',
+        self::OPEN_TRS_SHORT_FROM_UPSIZE          => 'buy',
+        self::CLOSE_FUTURES_CONTRACT_LONG         => 'sell',
+        self::CLOSE_FUTURES_CONTRACT_SHORT        => 'sell',
+        self::OPEN_FUTURES_CONTRACT_LONG          => 'buy',
+        self::OPEN_FUTURES_CONTRACT_SHORT         => 'buy',
+
+
+        // The following Trade Actions are included to paint a clear picture in the position reports but are not included
+        // in the TradesOnly group of transaction codes used to filter trade transactions in Sentry Transaction Browser
+
         self::UNWIND_REPO                         => 'buy',
         self::RECEIVE_REPO                        => 'sell',
-        self::SELL_TO_OPEN                        => 'sell',
-        self::SELL_TO_CLOSE                       => 'sell',
-        self::OPEN_FUTURES_CONTRACT_LONG          => 'buy',
-        self::CLOSE_FUTURES_CONTRACT_LONG         => 'sell',
-        self::PARTIAL_TERMINATE_PROTECTION_BOUGHT => 'misc',
-        self::TERMINATE_PROTECTION_BOUGHT         => 'misc',
         self::REPO_DEPOSIT_FUNDS                  => 'misc',
-        self::BUY_PROTECTION                      => 'buy',
         self::OPEN_CURRENCY_CONTRACT              => 'buy',
         self::CLOSE_CURRENCY_CONTRACT             => 'sell',
-        self::OPEN_IRS                            => 'buy',
-        self::CLOSE_IRS                           => 'sell',
-        self::OPEN_SHORT_TRS                      => 'buy',
-        self::CLOSE_SHORT_TRS                     => 'sell',
         self::REPO_WITHDRAW_FUNDS                 => 'misc',
         self::RECEIVE_SHARES                      => 'misc',
-        self::PARTIAL_CLOSE_IRS                   => 'sell',
+
 
     ];
 
