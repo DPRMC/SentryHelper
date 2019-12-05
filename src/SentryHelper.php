@@ -165,6 +165,9 @@ class SentryHelper {
     const ZWD = 155;
 
 
+    /**
+     * @var array Sentry currency code id mapped to currency abbreviation.
+     */
     public static $currencyCodeDescriptions = [
         self::USD => 'USD',
         self::EUR => 'EUR',
