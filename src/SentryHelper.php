@@ -2,6 +2,8 @@
 
 namespace DPRMC\FIMS\Helpers;
 
+use Exception;
+
 /**
  * Class SentryHelper
  * @package DPRMC\FIMS\Helpers
@@ -399,6 +401,7 @@ class SentryHelper {
     const CLOSE_FUTURES_CONTRACT_SHORT        = 271;
     const OPEN_FUTURES_CONTRACT_SHORT         = 269;
 
+    const FACTOR_PIK = 62;
 
 
 
@@ -471,7 +474,8 @@ class SentryHelper {
         self::OPEN_TRS_LONG_FROM_UPSIZE           => 'Open TRS Long from Upsize',
         self::OPEN_TRS_SHORT_FROM_UPSIZE          => 'Open TRS Short from Upsize',
         self::CLOSE_FUTURES_CONTRACT_SHORT        => 'Close futures contract short',
-        self::OPEN_FUTURES_CONTRACT_SHORT         => 'Open futures contract short'
+        self::OPEN_FUTURES_CONTRACT_SHORT         => 'Open futures contract short',
+        self::FACTOR_PIK => 'Factor PIK'
 
     ];
 
@@ -528,11 +532,11 @@ class SentryHelper {
     /**
      * @param int $transactionCodeId
      * @return string
-     * @throws \Exception
+     * @throws Exception
      */
     public static function transactionTypeText( int $transactionCodeId ): string {
         if ( !isset( self::$transactionCodeDescriptions[ $transactionCodeId ] ) ):
-            throw new \Exception( "We don't have this transactionCodeDescriptions set for transactionCodeId [" . $transactionCodeId . "] in the SentryHelper file." );
+            throw new Exception( "We don't have this transactionCodeDescriptions set for transactionCodeId [" . $transactionCodeId . "] in the SentryHelper file." );
         endif;
         return self::$transactionCodeDescriptions[ $transactionCodeId ];
     }
