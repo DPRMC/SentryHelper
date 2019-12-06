@@ -402,7 +402,7 @@ class SentryHelper {
     const OPEN_FUTURES_CONTRACT_SHORT         = 269;
 
     const FACTOR_PIK = 62;
-
+    const PADJ       = 46;
 
 
     public static $transactionCodeDescriptions = [
@@ -475,8 +475,8 @@ class SentryHelper {
         self::OPEN_TRS_SHORT_FROM_UPSIZE          => 'Open TRS Short from Upsize',
         self::CLOSE_FUTURES_CONTRACT_SHORT        => 'Close futures contract short',
         self::OPEN_FUTURES_CONTRACT_SHORT         => 'Open futures contract short',
-        self::FACTOR_PIK => 'Factor PIK'
-
+        self::FACTOR_PIK                          => 'Factor PIK',
+        self::PADJ                                => 'Principal Adjustment',
     ];
 
     public static $transactionCodeTradeActions = [
@@ -518,13 +518,13 @@ class SentryHelper {
         // The following Trade Actions are included to paint a clear picture in the position reports but are not included
         // in the TradesOnly group of transaction codes used to filter trade transactions in Sentry Transaction Browser
 
-        self::UNWIND_REPO                         => 'buy',
-        self::RECEIVE_REPO                        => 'sell',
-        self::REPO_DEPOSIT_FUNDS                  => 'misc',
-        self::OPEN_CURRENCY_CONTRACT              => 'buy',
-        self::CLOSE_CURRENCY_CONTRACT             => 'sell',
-        self::REPO_WITHDRAW_FUNDS                 => 'misc',
-        self::RECEIVE_SHARES                      => 'misc',
+        self::UNWIND_REPO             => 'buy',
+        self::RECEIVE_REPO            => 'sell',
+        self::REPO_DEPOSIT_FUNDS      => 'misc',
+        self::OPEN_CURRENCY_CONTRACT  => 'buy',
+        self::CLOSE_CURRENCY_CONTRACT => 'sell',
+        self::REPO_WITHDRAW_FUNDS     => 'misc',
+        self::RECEIVE_SHARES          => 'misc',
 
 
     ];
