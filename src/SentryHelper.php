@@ -398,6 +398,7 @@ class SentryHelper {
     const OPEN_TRS_SHORT_FROM_UPSIZE          = 538;
     const CLOSE_FUTURES_CONTRACT_SHORT        = 271;
     const OPEN_FUTURES_CONTRACT_SHORT         = 269;
+    const SPO_PAYABLE                         = 396;
 
 
 
@@ -471,7 +472,8 @@ class SentryHelper {
         self::OPEN_TRS_LONG_FROM_UPSIZE           => 'Open TRS Long from Upsize',
         self::OPEN_TRS_SHORT_FROM_UPSIZE          => 'Open TRS Short from Upsize',
         self::CLOSE_FUTURES_CONTRACT_SHORT        => 'Close futures contract short',
-        self::OPEN_FUTURES_CONTRACT_SHORT         => 'Open futures contract short'
+        self::OPEN_FUTURES_CONTRACT_SHORT         => 'Open futures contract short',
+        self::SPO_PAYABLE                         => 'SPO Payable'
 
     ];
 
