@@ -400,11 +400,9 @@ class SentryHelper {
     const OPEN_TRS_SHORT_FROM_UPSIZE          = 538;
     const CLOSE_FUTURES_CONTRACT_SHORT        = 271;
     const OPEN_FUTURES_CONTRACT_SHORT         = 269;
+    const FACTOR_PIK                          = 62;
+    const PADJ                                = 46;
     const SPO_PAYABLE                         = 396;
-
-
-    const FACTOR_PIK = 62;
-    const PADJ       = 46;
 
 
     public static $transactionCodeDescriptions = [
