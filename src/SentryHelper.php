@@ -1397,7 +1397,6 @@ class SentryHelper
         self::REVERSE_INITIAL_MARGIN_RECEIVABLE_SWAPS_ONLY => 'Reverse Initial Margin Receivable (Swaps Only)',
         self::INITIAL_MARGIN_RECEIVABLE_SWAPS_ONLY => 'Initial Margin Receivable (Swaps Only)',
         self::REVERSE_INITIAL_MARGIN_PAYMENT_SWAPS_ONLY => 'Reverse Initial Margin Payment (Swaps Only)',
-        self::REVERSE_INITIAL_MARGIN_PAYMENT_SWAPS_ONLY => 'Reverse Initial Margin payment (Swaps Only)',
         self::REPO_MARGIN_BALANCE_INCREASE => 'Repo Margin balance increase',
         self::REVERSE_REPO_MARGIN_BALANCE_INCREASE => 'Reverse Repo Margin balance increase',
         self::REPO_MARGIN_BALANCE_DESCREASE => 'Repo Margin balance descrease',
