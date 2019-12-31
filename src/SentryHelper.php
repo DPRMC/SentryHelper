@@ -1553,13 +1553,14 @@ class SentryHelper
         // The following Trade Actions are included to paint a clear picture in the position reports but are not included
         // in the TradesOnly group of transaction codes used to filter trade transactions in Sentry Transaction Browser
 
-        self::UNWIND_REPO             => 'buy',
-        self::RECEIVE_REPO            => 'sell',
-        self::REPO_DEPOSIT_FUNDS      => 'misc',
-        self::OPEN_CURRENCY_CONTRACT  => 'buy',
-        self::CLOSE_CURRENCY_CONTRACT => 'sell',
-        self::REPO_WITHDRAW_FUNDS     => 'misc',
-        self::RECEIVE_SHARES          => 'misc',
+        self::UNWIND_REPO               => 'buy',
+        self::RECEIVE_REPO              => 'sell',
+        self::REPO_DEPOSIT_FUNDS        => 'misc',
+        self::OPEN_CURRENCY_CONTRACT    => 'buy',
+        self::CLOSE_CURRENCY_CONTRACT   => 'sell',
+        self::REPO_WITHDRAW_FUNDS       => 'misc',
+        self::RECEIVE_SHARES            => 'misc',
+        self::TOTAL_RETURN_SWAP_PAYMENT => 'misc',
 
 
     ];
