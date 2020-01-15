@@ -1560,7 +1560,6 @@ class SentryHelper
         self::CLOSE_CURRENCY_CONTRACT   => 'sell',
         self::REPO_WITHDRAW_FUNDS       => 'misc',
         self::RECEIVE_SHARES            => 'misc',
-        self::TOTAL_RETURN_SWAP_PAYMENT => 'misc',
 
 
     ];
