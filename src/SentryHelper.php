@@ -8,8 +8,7 @@ use Exception;
  * Class SentryHelper
  * @package DPRMC\FIMS\Helpers
  */
-class SentryHelper
-{
+class SentryHelper {
 
     const USD = 146;
     const EUR = 49;
@@ -1514,6 +1513,9 @@ class SentryHelper
         self::REVERSE_ADJUSTMENT_TO_INTEREST_ON_TRADES_SETTLING_OVER_ME           => 'Reverse Adjustment to Interest on Trades Settling Over ME',
     ];
 
+    /**
+     * @var string[]
+     */
     public static $transactionCodeTradeActions = [
         self::BUY                                 => 'buy',
         self::SELL                                => 'sell',
@@ -1553,13 +1555,13 @@ class SentryHelper
         // The following Trade Actions are included to paint a clear picture in the position reports but are not included
         // in the TradesOnly group of transaction codes used to filter trade transactions in Sentry Transaction Browser
 
-        self::UNWIND_REPO               => 'buy',
-        self::RECEIVE_REPO              => 'sell',
-        self::REPO_DEPOSIT_FUNDS        => 'misc',
-        self::OPEN_CURRENCY_CONTRACT    => 'buy',
-        self::CLOSE_CURRENCY_CONTRACT   => 'sell',
-        self::REPO_WITHDRAW_FUNDS       => 'misc',
-        self::RECEIVE_SHARES            => 'misc',
+        self::UNWIND_REPO             => 'buy',
+        self::RECEIVE_REPO            => 'sell',
+        self::REPO_DEPOSIT_FUNDS      => 'misc',
+        self::OPEN_CURRENCY_CONTRACT  => 'buy',
+        self::CLOSE_CURRENCY_CONTRACT => 'sell',
+        self::REPO_WITHDRAW_FUNDS     => 'misc',
+        self::RECEIVE_SHARES          => 'misc',
 
 
     ];
@@ -1569,25 +1571,23 @@ class SentryHelper
      * @return string
      * @throws Exception
      */
-    public static function transactionTypeText(int $transactionCodeId): string
-    {
-        if (!isset(self::$transactionCodeDescriptions[$transactionCodeId])):
-            throw new Exception("We don't have this transactionCodeDescriptions set for transactionCodeId [" . $transactionCodeId . "] in the SentryHelper file.");
+    public static function transactionTypeText( int $transactionCodeId ): string {
+        if ( !isset( self::$transactionCodeDescriptions[ $transactionCodeId ] ) ):
+            throw new Exception( "We don't have this transactionCodeDescriptions set for transactionCodeId [" . $transactionCodeId . "] in the SentryHelper file." );
         endif;
-        return self::$transactionCodeDescriptions[$transactionCodeId];
+        return self::$transactionCodeDescriptions[ $transactionCodeId ];
     }
 
     /**
      * Sentry sends and receives boolean values as the strings True and False.
      * FIMS requires those to be translated into actual boolean values.
      * @param string|NULL $bool
-     * @return bool Will return NULL if the $bool parameter passed in is NULL.
+     * @return bool|NULL Will return NULL if the $bool parameter passed in is NULL.
      */
-    public static function translateFieldSentryToFimsBoolean(string $bool = NULL): bool
-    {
-        if (is_null($bool)) return NULL;
-        $bool = strtolower($bool);
-        if ('true' == $bool):
+    public static function translateFieldSentryToFimsBoolean( string $bool = NULL ) {
+        if ( is_null( $bool ) ) return NULL;
+        $bool = strtolower( $bool );
+        if ( 'true' == $bool ):
             return TRUE;
         endif;
         return FALSE;
@@ -1599,10 +1599,9 @@ class SentryHelper
      * @param string $name
      * @return string
      */
-    public static function slugifyName(string $name): string
-    {
-        $name = str_replace("/", '~', $name);
-        $name = str_replace(' ', '@', $name);
+    public static function slugifyName( string $name ): string {
+        $name = str_replace( "/", '~', $name );
+        $name = str_replace( ' ', '@', $name );
         return $name;
     }
 
@@ -1611,10 +1610,20 @@ class SentryHelper
      * @param string $slug
      * @return string
      */
-    public static function unslugifyName(string $slug): string
-    {
-        $slug = str_replace('@', ' ', $slug);
-        $slug = str_replace('~', '/', $slug);
+    public static function unslugifyName( string $slug ): string {
+        $slug = str_replace( '@', ' ', $slug );
+        $slug = str_replace( '~', '/', $slug );
         return $slug;
+    }
+
+    /**
+     * Make the name of the CDS look "pretty" for display.
+     * @param string $name
+     * @return string
+     */
+    public static function pretifyCDSName(string $name): string {
+        $prettyName = $name;
+        $prettyName = str_replace('_', ' ', $prettyName);
+        return $prettyName;
     }
 }

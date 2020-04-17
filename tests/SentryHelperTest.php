@@ -56,4 +56,14 @@ class CommonStockProdDataTest extends \PHPUnit\Framework\TestCase {
         $this->assertEquals('some name', $unslugged);
     }
 
+
+    /**
+     * @test
+     */
+    public function pretifyCDSNameShouldReturnPrettierName(){
+        $name = "CMBX_A_CDSI_S1 1/1_CDS1";
+        $unslugged = \DPRMC\FIMS\Helpers\SentryHelper::pretifyCDSName($name);
+        $this->assertEquals('CMBX A CDSI S1 1/1 CDS1', $unslugged);
+    }
+
 }
