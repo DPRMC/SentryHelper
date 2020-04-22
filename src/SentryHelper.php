@@ -1621,9 +1621,31 @@ class SentryHelper {
      * @param string $name
      * @return string
      */
-    public static function pretifyCDSName(string $name): string {
+    public static function prettifyCDSName( string $name ): string {
         $prettyName = $name;
-        $prettyName = str_replace('_', ' ', $prettyName);
+        $prettyName = str_replace( '_', ' ', $prettyName );
         return $prettyName;
     }
+
+
+    /**
+     * @param string $nameWithLot
+     * @return array|string[]
+     */
+    public static function splitCDSName( string $nameWithLot ): array {
+        $parts = [
+            'name' => '',
+            'lot'  => '',
+        ];
+
+        $lotNameParts    = explode( '_', $nameWithLot );
+        $lotNumber       = array_pop( $lotNameParts );
+        $securityName    = implode( '_', $lotNameParts );
+        $parts[ 'name' ] = self::pretifyCDSName( $securityName );
+        $parts[ 'lot' ]  = str_replace( 'CDS', '', $lotNumber ); // Just want the integer.
+
+        return $parts;
+    }
+
+
 }
