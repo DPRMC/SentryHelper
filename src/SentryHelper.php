@@ -1641,7 +1641,7 @@ class SentryHelper {
         $lotNameParts    = explode( '_', $nameWithLot );
         $lotNumber       = array_pop( $lotNameParts );
         $securityName    = implode( '_', $lotNameParts );
-        $parts[ 'name' ] = self::pretifyCDSName( $securityName );
+        $parts[ 'name' ] = self::prettifyCDSName( $securityName );
         $parts[ 'lot' ]  = str_replace( 'CDS', '', $lotNumber ); // Just want the integer.
 
         return $parts;
