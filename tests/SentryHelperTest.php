@@ -1,7 +1,7 @@
 <?php
 
 
-class CommonStockProdDataTest extends \PHPUnit\Framework\TestCase {
+class SentryHelperTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @test
@@ -65,5 +65,7 @@ class CommonStockProdDataTest extends \PHPUnit\Framework\TestCase {
         $unslugged = \DPRMC\FIMS\Helpers\SentryHelper::prettifyCDSName($name);
         $this->assertEquals('CMBX A CDSI S1 1/1 CDS1', $unslugged);
     }
+
+
 
 }

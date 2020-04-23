@@ -3,6 +3,7 @@
 namespace DPRMC\FIMS\Helpers;
 
 use Exception;
+use phpDocumentor\Reflection\Types\Iterable_;
 
 /**
  * Class SentryHelper
@@ -1647,5 +1648,27 @@ class SentryHelper {
         return $parts;
     }
 
+
+    /**
+     * @param $iterable
+     * @param $quantityField
+     * @param $priceField
+     * @return float|int|null
+     */
+    public function wapp( $iterable, $quantityField, $priceField ) {
+        $sumProduct = 0;
+        $sumWeight  = 0;
+
+        foreach ( $iterable as $array ):
+            $sumProduct += $array[ $quantityField ] * $array[ $priceField ];
+            $sumWeight  += $array[ $quantityField ];
+        endforeach;
+
+        if ( 0 == $sumWeight ):
+            return NULL;
+        endif;
+
+        return $sumProduct / $sumWeight;
+    }
 
 }
