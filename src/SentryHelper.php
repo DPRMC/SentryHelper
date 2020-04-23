@@ -1655,7 +1655,7 @@ class SentryHelper {
      * @param $priceField
      * @return float|int|null
      */
-    public function wapp( $iterable, $quantityField, $priceField ) {
+    public static function wapp( $iterable, $quantityField, $priceField ) {
         $sumProduct = 0;
         $sumWeight  = 0;
 
