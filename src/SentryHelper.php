@@ -401,10 +401,11 @@ class SentryHelper {
     const CLOSE_FUTURES_CONTRACT_SHORT        = 271;
     const OPEN_FUTURES_CONTRACT_SHORT         = 269;
     const SPO_PAYABLE                         = 396;
+    const ADJUSTMENT_TO_INTEREST_CASH         = 11;
+    const FACTOR_PIK                          = 62;
+    const PADJ                                = 46;
 
-
-    const FACTOR_PIK = 62;
-    const PADJ       = 46;
+    const DW = 636;
 
 
     public static $transactionCodeDescriptions = [
@@ -480,6 +481,9 @@ class SentryHelper {
         self::FACTOR_PIK                          => 'Factor PIK',
         self::PADJ                                => 'Principal Adjustment',
         self::SPO_PAYABLE                         => 'SPO Payable',
+        self::ADJUSTMENT_TO_INTEREST_CASH         => "Adjustment to Interest Cash",
+
+        self::DW => 'Dividend Withholding',
     ];
 
     public static $transactionCodeTradeActions = [
@@ -550,7 +554,7 @@ class SentryHelper {
      * @param string|NULL $bool
      * @return bool Will return NULL if the $bool parameter passed in is NULL.
      */
-    public static function translateFieldSentryToFimsBoolean( string $bool = NULL ): bool {
+    public static function translateFieldSentryToFimsBoolean( string $bool = NULL ): ?bool {
         if ( is_null( $bool ) ) return NULL;
         $bool = strtolower( $bool );
         if ( 'true' == $bool ):
