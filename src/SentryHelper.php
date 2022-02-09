@@ -919,7 +919,7 @@ class SentryHelper {
     const ADJUSTMENT_TO_INTEREST_ON_TRADES_SETTLING_OVER_ME                   = 608;
     const REVERSE_ADJUSTMENT_TO_INTEREST_ON_TRADES_SETTLING_OVER_ME           = 609;
     const DW                                                                  = 636; // Dividend Withholding
-
+    const FEE_SHARE                                                           = 640; // 2022-02-09:mdd - from Marcus: We have some bonds we own where we receive a portion of the fees.  It’s fee income.  Backoffice wanted it’s own transaction code incase we ever want to track this data.
 
     public static $transactionCodeDescriptions = [
 
@@ -1513,6 +1513,7 @@ class SentryHelper {
         self::ADJUSTMENT_TO_INTEREST_ON_TRADES_SETTLING_OVER_ME                   => 'Adjustment to Interest on Trades Settling Over ME',
         self::REVERSE_ADJUSTMENT_TO_INTEREST_ON_TRADES_SETTLING_OVER_ME           => 'Reverse Adjustment to Interest on Trades Settling Over ME',
         self::DW                                                                  => 'Dividend Withholding',
+        self::FEE_SHARE                                                           => 'Fee Share',
     ];
 
     /**
