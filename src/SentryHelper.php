@@ -918,7 +918,8 @@ class SentryHelper {
     const REVERSE_TRANSFER_OUT_SHORT                                          = 607;
     const ADJUSTMENT_TO_INTEREST_ON_TRADES_SETTLING_OVER_ME                   = 608;
     const REVERSE_ADJUSTMENT_TO_INTEREST_ON_TRADES_SETTLING_OVER_ME           = 609;
-    const FEE_SHARE                                                           = 640;
+    const DW                                                                  = 636; // Dividend Withholding
+
 
     public static $transactionCodeDescriptions = [
 
@@ -1511,7 +1512,7 @@ class SentryHelper {
         self::REVERSE_TRANSFER_OUT_SHORT                                          => 'Reverse Transfer Out Short',
         self::ADJUSTMENT_TO_INTEREST_ON_TRADES_SETTLING_OVER_ME                   => 'Adjustment to Interest on Trades Settling Over ME',
         self::REVERSE_ADJUSTMENT_TO_INTEREST_ON_TRADES_SETTLING_OVER_ME           => 'Reverse Adjustment to Interest on Trades Settling Over ME',
-        self::FEE_SHARE                                                           => 'Fee Share',
+        self::DW                                                                  => 'Dividend Withholding',
     ];
 
     /**
