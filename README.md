@@ -180,6 +180,17 @@ Run the test suite:
 vendor/bin/phpunit
 ```
 
+The unit tests cover every public helper method and the public mapping arrays:
+
+- Transaction code description lookup and unknown-code exception handling
+- Currency, transaction description, and trade action mappings
+- Sentry string boolean conversion, including `true`, `false`, `null`, and unknown strings
+- Name slugging and unslugging for spaces and slashes
+- CDS display-name formatting and lot splitting
+- Weighted average purchase price calculation, including the zero-quantity `null` path
+
+To generate a coverage report, enable a PHP coverage driver such as Xdebug or PCOV before running PHPUnit. The repository's PHPUnit configuration writes HTML coverage to `build/coverage/html` and Clover XML to `build/logs/clover.xml` when a coverage driver is available.
+
 Run a syntax check on the helper:
 
 ```bash
