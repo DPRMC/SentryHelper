@@ -1570,6 +1570,11 @@ class SentryHelper {
     ];
 
     /**
+     * Get the display text for a Sentry transaction code id.
+     *
+     * Example input: self::BUY
+     * Example output: 'Buy'
+     *
      * @param int $transactionCodeId
      * @return string
      * @throws Exception
@@ -1582,8 +1587,14 @@ class SentryHelper {
     }
 
     /**
-     * Sentry sends and receives boolean values as the strings True and False.
-     * FIMS requires those to be translated into actual boolean values.
+     * Convert a Sentry boolean string into a FIMS boolean value.
+     *
+     * Sentry sends and receives boolean values as the strings True and False. FIMS requires those to be translated into
+     * actual boolean values.
+     *
+     * Example input: 'True'
+     * Example output: TRUE
+     *
      * @param string|NULL $bool
      * @return bool|NULL Will return NULL if the $bool parameter passed in is NULL.
      */
@@ -1598,7 +1609,13 @@ class SentryHelper {
 
 
     /**
-     * This method got moved into this class as a static method, because we found we needed it in more than one location.
+     * Convert a Sentry name into a slug-safe representation.
+     *
+     * Replaces characters that are unsafe or inconvenient in slug usage with reversible placeholders.
+     *
+     * Example input: 'ABC Loan/Series 1'
+     * Example output: 'ABC@Loan~Series@1'
+     *
      * @param string $name
      * @return string
      */
@@ -1609,7 +1626,11 @@ class SentryHelper {
     }
 
     /**
-     * The sister function to slugifyName().
+     * Convert a slugified Sentry name back into its original representation.
+     *
+     * Example input: 'ABC@Loan~Series@1'
+     * Example output: 'ABC Loan/Series 1'
+     *
      * @param string $slug
      * @return string
      */
@@ -1621,6 +1642,10 @@ class SentryHelper {
 
     /**
      * Make the name of the CDS look "pretty" for display.
+     *
+     * Example input: 'CDX_NA_IG'
+     * Example output: 'CDX NA IG'
+     *
      * @param string $name
      * @return string
      */
@@ -1632,6 +1657,11 @@ class SentryHelper {
 
 
     /**
+     * Split a CDS name-with-lot string into display name and lot number parts.
+     *
+     * Example input: 'CDX_NA_IG_CDS12'
+     * Example output: ['name' => 'CDX NA IG', 'lot' => '12']
+     *
      * @param string $nameWithLot
      * @return array|string[]
      */
@@ -1652,9 +1682,14 @@ class SentryHelper {
 
 
     /**
-     * @param $iterable
-     * @param $quantityField
-     * @param $priceField
+     * Calculate the weighted average purchase price for a set of rows.
+     *
+     * Example input: ([['quantity' => 10, 'price' => 99], ['quantity' => 20, 'price' => 102]], 'quantity', 'price')
+     * Example output: 101
+     *
+     * @param iterable $iterable Rows containing quantity and price fields.
+     * @param string $quantityField Field name containing the quantity weight.
+     * @param string $priceField Field name containing the price value.
      * @return float|int|null
      */
     public static function wapp( $iterable, $quantityField, $priceField ) {
